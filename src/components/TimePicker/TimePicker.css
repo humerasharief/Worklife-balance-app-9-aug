@@ -1,0 +1,12 @@
+.time-picker {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  
+  .time-picker input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    font-size: inherit;
+  }

@@ -1,0 +1,8 @@
+.background-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #E8E46E;
+    height: 100vh;
+    /* Additional styles... */
+  }
