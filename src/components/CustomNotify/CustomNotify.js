@@ -10,6 +10,9 @@ function CustomNotify() {
 
   const [finalReminder, setFinalReminder] = useState([]);
 
+  const [CheckedReminders, setCheckedReminders] = useState([
+  ]);
+
   const [reminders, setReminders] = useState([
     {
       id: 1,
@@ -80,10 +83,13 @@ function CustomNotify() {
           })
           notification.onclick = function(){
             console.log("dfadsaf")
+            console.log({text:finalReminder[i].text, category:finalReminder[i].category})
+            setCheckedReminders({text:finalReminder[i].text, category:finalReminder[i].category})
+            console.log(CheckedReminders)
               //window.open('http://example.com');
               window.focus();
           };
-        }, timeSelected * 2 * 60000);
+        }, timeSelected * 60 * 60000);
       }
     /*for (let i in animals) {
         console.log(animals[i].type)
