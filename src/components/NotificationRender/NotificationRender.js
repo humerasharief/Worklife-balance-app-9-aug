@@ -77,7 +77,7 @@ function NotificationRender(props) {
       <h2>Enter your lunch time</h2>
       <h2>24-Hour Time Picker</h2>
       <TimePicker sendDataToParent={handleChildDataLunch}/>
-      <CustomNotify props={btnClick}/>
+      <CustomNotify messageProp={buttonClickCount}/>
       <Button onClick={handleClick } variant="contained" color="primary">Click to enable notifications</Button>
     </div>
   );

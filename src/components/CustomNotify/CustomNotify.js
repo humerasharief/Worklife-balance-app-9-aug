@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState }from 'react';
 import { Link } from 'react-router-dom';
 function CustomNotify(props) {
   const initialCheckboxes = [
@@ -71,12 +71,9 @@ function CustomNotify(props) {
     setSelectedOption(event.target.value);
   };
 
-  const notifyUser = () => {
-    console.log(finalReminder)
+  useEffect(() => {
     const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2
     for (let i in finalReminder) {
-        console.log(selectedOption)
-        console.log(timeSelected)
         setInterval(() => {
           const notification = new Notification(finalReminder[i].category, {
             body: finalReminder[i].text
@@ -91,7 +88,7 @@ function CustomNotify(props) {
           };
         }, timeSelected * 60 * 60000);
       }
-  }
+  }, [props.messageProp]);
 
   return (
     <div>
@@ -144,6 +141,7 @@ function CustomNotify(props) {
         2 hours
       </label>
       <p>Selected Option: {selectedOption}</p>
+      <p>{props.messageProp}</p>
     </div>
     
   );
