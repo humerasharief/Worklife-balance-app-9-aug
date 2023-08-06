@@ -69,17 +69,20 @@ function CustomNotify(props) {
 
   useEffect(() => {
     const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2;
-    let clickedRemindersList = []
+    let clickedRemindersList = [];
+    let providedRemindersList = [];
     for (let i in finalReminder) {
         setInterval(() => {
+          const newObj1 = {text:finalReminder[i].text, category:finalReminder[i].category};
+          providedRemindersList.push(newObj1);
+          localStorage.setItem('sentData', JSON.stringify(providedRemindersList));
           const notification = new Notification(finalReminder[i].category, {
             body: finalReminder[i].text
           })
           notification.onclick = function(){
             const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
-            clickedRemindersList.push(newObj)
-            
-            localStorage.setItem('data', JSON.stringify(clickedRemindersList));
+            clickedRemindersList.push(newObj);       
+            localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
             window.focus();
           };
         }, 60000);

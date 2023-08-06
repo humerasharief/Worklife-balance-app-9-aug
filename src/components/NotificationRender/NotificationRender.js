@@ -19,7 +19,6 @@ function NotificationRender(props) {
   const [logoutMinsFromChild, setlogoutMinsFromChild] = React.useState(0);
   const [lunchHoursFromChild, setLunchHoursFromChild] = React.useState(13);
   const [lunchMinsFromChild, setLunchMinsFromChild] = React.useState(0);
-  const [message, setMessage] = useState('');   
 
   useEffect(() => {
     let notificationTime = new Date();
