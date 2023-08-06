@@ -1,20 +1,14 @@
 import React, { useEffect, useState }from 'react';
-import { Link } from 'react-router-dom';
 import './CustomNotify.css';
 function CustomNotify(props) {
   const initialCheckboxes = [
     { id: 1, label: 'Work', checked: false, category: 'Work' },
     { id: 2, label: 'Life', checked: false, category: 'Life' },
     { id: 3, label: 'Exercise', checked: false, category: 'Exercise' },
-    { id: 4, label: 'Motivational Messages', checked: false, category: 'Motivation' },
-    // ... more checkboxes
+    { id: 4, label: 'Motivational Messages', checked: false, category: 'Motivation' }
   ];
 
   const [finalReminder, setFinalReminder] = useState([]);
-
-  const [CheckedReminders, setCheckedReminders] = useState([
-  ]);
-
   const [reminders, setReminders] = useState([
     {
       id: 1,
@@ -74,21 +68,19 @@ function CustomNotify(props) {
   };
 
   useEffect(() => {
-    const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2
+    const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2;
+    let clickedRemindersList = []
     for (let i in finalReminder) {
         setInterval(() => {
           const notification = new Notification(finalReminder[i].category, {
             body: finalReminder[i].text
           })
           notification.onclick = function(){
-            console.log("dfadsaf")
-            console.log({text:finalReminder[i].text, category:finalReminder[i].category})
-            setCheckedReminders({text:finalReminder[i].text, category:finalReminder[i].category})
-            console.log(CheckedReminders)
-              //window.open('http://example.com');
-              window.focus();
+            const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
+            clickedRemindersList.push(newObj)
+            window.focus();
           };
-        }, timeSelected * 60 * 60000);
+        }, 60000);
       }
   }, [props.messageProp]);
 

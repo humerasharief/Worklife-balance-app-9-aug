@@ -11,9 +11,14 @@ const Header = () => {
       <h1>Work Life Balancer Application </h1>
       <nav className="navigation"  >
           <ul className="nav-list">
+            <li className={location.pathname === '/intro' ? 'active' : ''}>
+              <NavLink exact to="/intro">
+                Introduction
+              </NavLink>
+            </li>
             <li className={location.pathname === '/home' ? 'active' : ''}>
               <NavLink exact to="/home">
-                Home
+                Dashboard
               </NavLink>
             </li>
             <li>
