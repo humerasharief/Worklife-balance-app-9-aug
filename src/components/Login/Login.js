@@ -47,9 +47,11 @@ function Login() {
             } else setIsNameValid(false);}}
         />
         <input
-          type="age"
           placeholder="Age"
           value={age}
+          type="number"
+          min={18}
+          max={70}
           onChange={(e) => {
             if(e.target.value.length > 0)  {
               setAge(e.target.value);
@@ -62,7 +64,7 @@ function Login() {
         </select>
         {isErr && <p >Please fill name & age to proceed further</p>}
         <div className="box">
-          <Button onClick={handleButtonClick} variant="contained" color="primary">Click to enter exciting journey!</Button>
+          <Button onClick={handleButtonClick} variant="contained" color="primary">Click for healthy journey!</Button>
         </div>        
       </form>
     </div>
