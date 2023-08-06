@@ -27,7 +27,6 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {username}username
         <Link to={`/home/${encodeURIComponent(username)}`}>Click to enter exciting journey!</Link>
         
       </form>

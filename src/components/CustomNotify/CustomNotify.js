@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-function CustomNotify() {
+function CustomNotify(props) {
   const initialCheckboxes = [
     { id: 1, label: 'Work', checked: false, category: 'Work' },
     { id: 2, label: 'Life', checked: false, category: 'Life' },
@@ -91,19 +91,6 @@ function CustomNotify() {
           };
         }, timeSelected * 60 * 60000);
       }
-    /*for (let i in animals) {
-        console.log(animals[i].type)
-        setTimeout(() => {
-          const notification = new Notification(animals[i].type, {
-            body: 'click the notification if you have taken action, or click to the x to remind again later'
-          })
-          notification.onclick = function(){
-            console.log("dfadsaf")
-              //window.open('http://example.com');
-              window.focus();
-          };
-        }, 10000);
-      }*/
   }
 
   return (
@@ -157,7 +144,6 @@ function CustomNotify() {
         2 hours
       </label>
       <p>Selected Option: {selectedOption}</p>
-      <Link onClick={() => notifyUser('Reminder to log out in 15 mins')}>Click to enable notifications</Link>
     </div>
     
   );

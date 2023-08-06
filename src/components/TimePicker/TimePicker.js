@@ -10,6 +10,7 @@ function TimePicker({ sendDataToParent }){
     if (newHours >= 0 && newHours <= 23) {
       setHours(newHours);
     }
+    sendDataToParentMet();
   };
 
   const handleMinutesChange = (event) => {
@@ -17,9 +18,10 @@ function TimePicker({ sendDataToParent }){
     if (newMinutes >= 0 && newMinutes <= 59) {
       setMinutes(newMinutes);
     }
+    sendDataToParentMet();
   };
 
-  const sendDataToParentOnClick = () => {
+  const sendDataToParentMet = () => {
     const obj = {
         hours: hours,
         minutes: minutes
@@ -44,7 +46,6 @@ function TimePicker({ sendDataToParent }){
         min="0"
         max="59"
       />
-      <button onClick={sendDataToParentOnClick}>Confirm the time entered</button>
     </div>
   );
 };
