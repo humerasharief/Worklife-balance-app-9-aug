@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import Home from '../Home/Home';
-import SimpleGraph from '../SimpleGraph/SimpleGraph';
+import Chart from '../Chart/Chart';
 const Analytics = () => {
     const storedData = localStorage.getItem('data');
     const items = [
@@ -14,7 +14,7 @@ const Analytics = () => {
       const completedCount = items.filter(item => item.completed).length;
   const totalCount = items.length;
     return (<div className="App">
-    <SimpleGraph completedCount={completedCount} totalCount={totalCount} />
+    <Chart />
   </div>)
 }
 

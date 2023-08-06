@@ -22,7 +22,7 @@ function NotificationRender(props) {
   const [message, setMessage] = useState('');   
 
   useEffect(() => {
-    const notificationTime = new Date();
+    let notificationTime = new Date();
     notificationTime.setHours(lunchHoursFromChild); // Replace with your desired hour
     notificationTime.setMinutes(lunchMinsFromChild); // Replace with your desired minute    
     const currentTime = new Date();
@@ -46,7 +46,7 @@ function NotificationRender(props) {
     notificationTime.setMinutes(logoutMinsFromChild); // Replace with your desired minute    
     const currentTime = new Date();
     
-    const timeUntilNotification = notificationTime - currentTime;   
+    let timeUntilNotification = notificationTime - currentTime;   
     if (timeUntilNotification <= 0) {
       timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
     }
