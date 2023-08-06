@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.css'; // Import the CSS file for styling
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
-import Home from '../Home/Home';
 import { useLocation } from 'react-router-dom';
 import Analytics from '../Analytics/Analytics';
 import Login from '../Login/Login';
+import Introduction from '../Introduction/Introduction';
 const Header = () => {
     const location = useLocation();
   return (
@@ -32,6 +32,7 @@ const Header = () => {
         </nav>) : null}
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route exact path="/intro" component={Introduction} />
           <Route exact path="/analytics" component={Analytics} />
         </Switch>
     </header>
