@@ -39,3 +39,61 @@ body {
   ul li {
     padding-bottom: 10px;
   }
+
+  .header {
+    color: #E99497;
+    padding: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header nav li {
+    margin: 0 10px;
+  }
+  
+  .header nav a {
+    color: #B3E283;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Navigation.css */
+.navigation {
+    background-color: #333;
+    color: white;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-list li {
+    padding: 10px;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-list li.active {
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+  /* Apply additional styles as needed */
+  

@@ -4,10 +4,12 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import './globalStyles.css';
+import Header from './components/Header/Header';
 const App = () => {
   return (
     <>
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/home" component={Home} />

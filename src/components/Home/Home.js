@@ -9,7 +9,7 @@ function Home() {
   const searchParams = new URLSearchParams(location.search);
   const param1 = searchParams.get('param1');
   return <div className="background-container dashboard-container">
-    <Header />
+    
     <div ></div>
     <div className="main-content">
       <NotificationRender/>
