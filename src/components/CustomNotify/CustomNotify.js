@@ -65,7 +65,7 @@ function CustomNotify(props) {
     checkbox.label.toLowerCase().includes(filter.toLowerCase())
   );
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState('30min');
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -141,7 +141,6 @@ function CustomNotify(props) {
         2 hours
       </label>
       <p>Selected Option: {selectedOption}</p>
-      <p>{props.messageProp}</p>
     </div>
     
   );

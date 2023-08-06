@@ -34,7 +34,9 @@ function Login() {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
-        <Button onClick={handleButtonClick} variant="contained" color="primary">Click to enter exciting journey!</Button>
+        <div className="box">
+          <Button onClick={handleButtonClick} variant="contained" color="primary">Click to enter exciting journey!</Button>
+        </div>        
       </form>
     </div>
   );
