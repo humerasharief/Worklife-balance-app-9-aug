@@ -78,6 +78,8 @@ function CustomNotify(props) {
           notification.onclick = function(){
             const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
             clickedRemindersList.push(newObj)
+            
+            localStorage.setItem('data', JSON.stringify(clickedRemindersList));
             window.focus();
           };
         }, 60000);
