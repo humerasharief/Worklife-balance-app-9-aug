@@ -30,6 +30,15 @@
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+
+  .login-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
   
   .login-form link {
     width: 100%;

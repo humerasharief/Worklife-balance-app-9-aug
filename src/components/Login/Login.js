@@ -16,6 +16,12 @@ function Login() {
     e.preventDefault();
   };
 
+  const [selectedOption, setSelectedOption] = useState('male');
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
@@ -32,6 +38,10 @@ function Login() {
           value={age}
           onChange={(e) => setAge(e.target.value)}
         />
+        <select value={selectedOption} onChange={handleSelectChange}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
         <div className="box">
           <Button onClick={handleButtonClick} variant="contained" color="primary">Click to enter exciting journey!</Button>
         </div>        
