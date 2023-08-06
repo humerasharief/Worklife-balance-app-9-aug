@@ -17,7 +17,7 @@ const ChartBar = (props) => {
           style={{ height: barFillHeight }}
         ></div>
       </div>
-      <div className='chart-bar__label'>{props.label}</div>
+      <div className='chart-bar__label'>{props.label} {barFillHeight}</div>
     </div>
   );
 };

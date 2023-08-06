@@ -10,12 +10,10 @@ function Login() {
 
   const handleButtonClick = () => {
     // Redirect to the target page with parameters
-    history.push(`/home?param1=${username}`);
+    history.push(`/intro?param1=${username}&param2=${age}`);
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    //history.push('/home');
-    // Add logic to validate and handle the login
   };
 
   return (
