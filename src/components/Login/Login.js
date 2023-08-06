@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import './Login.css'; // Import your CSS file for styles
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { useHistory } from 'react-router-dom';
 function Login() {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [age, setAge] = useState('');
+  const history = useHistory();
 
+  const handleButtonClick = () => {
+    // Redirect to the target page with parameters
+    history.push(`/home?param1=${username}`);
+  };
   const handleLogin = (e) => {
     e.preventDefault();
     //history.push('/home');
@@ -22,13 +29,12 @@ function Login() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type="age"
+          placeholder="Age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
         />
-        <Link to={`/home/${encodeURIComponent(username)}`}>Click to enter exciting journey!</Link>
-        
+        <Button onClick={handleButtonClick} variant="contained" color="primary">Click to enter exciting journey!</Button>
       </form>
     </div>
   );

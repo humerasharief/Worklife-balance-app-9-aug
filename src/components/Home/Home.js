@@ -1,19 +1,15 @@
 // src/components/Home.js
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import './Home.css'; // Import your CSS file for styles
 import NotificationRender from '../NotificationRender/NotificationRender';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { useLocation } from 'react-router-dom';
 function Home() {
-  const { param } = useParams();
-  
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const param1 = searchParams.get('param1');
   return <div className="background-container">
-    <div ><h2>Happy Day {decodeURIComponent(param)}</h2></div>
+    <div ><h2>Happy Day {decodeURIComponent(param1)}</h2></div>
     <NotificationRender/>
-    sasdf
-    asdsadas
-    
   </div>;
 }
 
