@@ -25,3 +25,32 @@
     font-weight: bold;
   }
   
+  /* Navigation.css */
+.navigation {
+    background-color: #333;
+    color: white;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-list li {
+    padding: 10px;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-list li.active {
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+  /* Apply additional styles as needed */
+  

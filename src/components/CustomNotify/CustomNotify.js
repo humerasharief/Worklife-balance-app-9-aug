@@ -1,10 +1,12 @@
 import React, { useEffect, useState }from 'react';
 import { Link } from 'react-router-dom';
+import './CustomNotify.css';
 function CustomNotify(props) {
   const initialCheckboxes = [
     { id: 1, label: 'Work', checked: false, category: 'Work' },
     { id: 2, label: 'Life', checked: false, category: 'Life' },
     { id: 3, label: 'Exercise', checked: false, category: 'Exercise' },
+    { id: 4, label: 'Motivational Messages', checked: false, category: 'Motivation' },
     // ... more checkboxes
   ];
 
@@ -92,57 +94,49 @@ function CustomNotify(props) {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Filter checkboxes"
-        value={filter}
-        onChange={handleFilterChange}
-      />
-      <ul>
-        {filteredCheckboxes.map((checkbox) => (
-          <li key={checkbox.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={checkbox.checked}
-                onChange={() => handleCheckboxChange(checkbox.id)}
-              />
-              {checkbox.label}
+      <div className="flex-container">
+        <div className="flex-item">Enter the genre you would be interested in getting reminders</div>
+        <div className="flex-item-2">
+          <input  className='styled-input '
+            type="text"
+            placeholder="Search Genre"
+            value={filter}
+            onChange={handleFilterChange}
+          />
+          <ul>
+            {filteredCheckboxes.map((checkbox) => (
+              <li key={checkbox.id}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={checkbox.checked}
+                    onChange={() => handleCheckboxChange(checkbox.id)}
+                  />
+                  {checkbox.label}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="flex-container">
+        <div className="flex-item">How frequent do you wish to get above selected notifications?</div>
+        <div className="flex-item-2">
+          <label>
+            <input type="radio" value="30min" checked={selectedOption === '30min'} onChange={handleOptionChange}/>
+            30 mins
+          </label>
+          <label>
+            <input type="radio" value="60min" checked={selectedOption === '60min'} onChange={handleOptionChange}/>
+              1 hour
             </label>
-          </li>
-        ))}
-      </ul>
-      <p>How Frequent do you wish to get above selected notifications?</p>
-      <label>
-        <input
-          type="radio"
-          value="30min"
-          checked={selectedOption === '30min'}
-          onChange={handleOptionChange}
-        />
-        30 mins
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="60min"
-          checked={selectedOption === '60min'}
-          onChange={handleOptionChange}
-        />
-        1 hour
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="120min"
-          checked={selectedOption === '120min'}
-          onChange={handleOptionChange}
-        />
-        2 hours
-      </label>
-      <p>Selected Option: {selectedOption}</p>
-    </div>
-    
+          <label>
+            <input type="radio" value="120min" checked={selectedOption === '120min'} onChange={handleOptionChange} />
+              2 hours
+          </label>
+        </div>
+      </div> 
+    </div>    
   );
 }
 

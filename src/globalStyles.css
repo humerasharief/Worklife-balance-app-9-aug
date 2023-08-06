@@ -1,0 +1,41 @@
+/* globalStyles.css */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px; 
+    /* Add other global styles as needed */
+  }
+
+  /* MyComponent.css */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  
+  .flex-item {
+    flex: 1.5;
+    padding: 10px;
+  }
+
+  .flex-item-2 {
+    flex: 2.5;
+    padding: 10px;
+  }
+
+  .flex-item-3 {
+    flex: 1;
+    align-items: center;
+  }
+
+  .main-content{
+    padding:20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    padding-bottom: 10px;
+  }

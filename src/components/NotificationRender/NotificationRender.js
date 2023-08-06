@@ -26,7 +26,7 @@ function NotificationRender(props) {
     notificationTime.setHours(lunchHoursFromChild); // Replace with your desired hour
     notificationTime.setMinutes(lunchMinsFromChild); // Replace with your desired minute    
     const currentTime = new Date();
-    const timeUntilNotification = notificationTime - currentTime;
+    let timeUntilNotification = notificationTime - currentTime;
     if (timeUntilNotification <= 0) {
       timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
     }
@@ -69,16 +69,19 @@ function NotificationRender(props) {
   };
   return (
     <div className="background-container">
-      {props.messageProp}
-      <h2>Enter your office end time</h2>
-      <h2>24-Hour Time Picker</h2>
-      <TimePicker sendDataToParent={handleChildDataLogout}/>
 
-      <h2>Enter your lunch time</h2>
-      <h2>24-Hour Time Picker</h2>
-      <TimePicker sendDataToParent={handleChildDataLunch}/>
+      <div className="flex-container">
+        <div className="flex-item">Enter your office end time</div>
+        <div className="flex-item-2"><TimePicker sendDataToParent={handleChildDataLogout}/></div>
+      </div>
+      <div className="flex-container">
+        <div className="flex-item">Enter your lunch time</div>
+        <div className="flex-item-2"><TimePicker sendDataToParent={handleChildDataLunch}/></div>
+      </div>      
       <CustomNotify messageProp={buttonClickCount}/>
-      <Button onClick={handleClick } variant="contained" color="primary">Click to enable notifications</Button>
+      <div className="container">
+          <Button onClick={handleClick } variant="contained" color="primary" className="aligned-button">Click to enable notifications</Button>
+      </div>      
     </div>
   );
 }

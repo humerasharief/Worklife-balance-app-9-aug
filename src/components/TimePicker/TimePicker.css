@@ -10,3 +10,30 @@
     text-align: center;
     font-size: inherit;
   }
+
+  /* TimePickerStyles.css */
+/* Custom styles for the time picker */
+.time-picker {
+  display: inline-block;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.time-picker__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.time-picker__inputGroup {
+  display: flex;
+  align-items: center;
+}
+
+.time-picker__inputGroup__divider {
+  margin: 0 4px;
+  font-weight: bold;
+}
