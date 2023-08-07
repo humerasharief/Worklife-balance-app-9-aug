@@ -10,3 +10,8 @@
 p {
     margin-block-start: 0;
 }
+
+h3 {
+    display: flex;
+    justify-content: center;
+}
