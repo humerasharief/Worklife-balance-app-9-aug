@@ -129,7 +129,7 @@ function CustomNotify(props) {
           />
           <ul>
             {filteredCheckboxes.map((checkbox) => (
-              <li key={checkbox.id}>
+              <li className="listNone" key={checkbox.id}>
                 <label>
                   <input
                     type="checkbox"

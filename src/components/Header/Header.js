@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <h1>Work Life Balancer Application </h1>      
+        <h1>Work Life Balancer </h1>      
         {location.pathname !== '/' ?  
           (<nav className="navigation"  >
             <ul className="nav-list">

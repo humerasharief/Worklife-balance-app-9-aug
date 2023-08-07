@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ChartBar from './ChartBar';
 import './Chart.css';
@@ -11,11 +11,10 @@ const Chart = () => {
   const sentFilter = (category) => {
     return parsedSentData.filter(item => item.category === category);
   };
-
+  let activityLevel = 0;
   const clickedFilter = (category) => {
     return parsedClickedData.filter(item => item.category === category);
   };
-
   const dataPoints = [{label:'Work', clickedValue: clickedFilter('work').length, sentValue: sentFilter('work').length},
                           {label:'Business', clickedValue: clickedFilter('business').length, sentValue: sentFilter('business').length},
                           {label:'Time', clickedValue: clickedFilter('time').length, sentValue: sentFilter('time').length},
@@ -25,18 +24,32 @@ const Chart = () => {
                           {label:'Motivational', clickedValue: clickedFilter('motivation').length, sentValue: sentFilter('motivation').length},
                           {label:'Financial', clickedValue: clickedFilter('finanace').length, sentValue: sentFilter('finanace').length},
                           {label:'Family', clickedValue: clickedFilter('family').length, sentValue: sentFilter('family').length},
-                        ]
+                        ];
+
+  const listValue = ['work', 'business', 'time','health','psychology','selfhelp','motivation','finanace','family'];
+  let clickedCount = 0;
+  let sentCount = 0;
+  listValue.map((item, index) => {
+    clickedCount += clickedFilter(item).length;
+    sentCount += sentFilter(item).length;
+  });
+  console.log(clickedCount)
+  console.log(sentCount)
   return (
     <div className='chart background-container'>
-      {
-        dataPoints.map((dataPoint) => (
-          <ChartBar
-            key={dataPoint.label}
-            value={dataPoint.clickedValue}
-            maxValue={dataPoint.sentValue}
-            label={dataPoint.label}
-          />
-        ))}
+      <>
+        {
+          dataPoints.map((dataPoint) => (
+            <ChartBar
+              key={dataPoint.label}
+              value={dataPoint.clickedValue}
+              maxValue={dataPoint.sentValue}
+              label={dataPoint.label}
+            />
+          ))}
+          
+      </>
+      <div>{Math.round((clickedCount/sentCount) * 100) + '%'}</div>
     </div>)
 }
 export default Chart;

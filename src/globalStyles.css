@@ -109,3 +109,9 @@ body {
   .flex-item-2 ul li {
     list-style: disc;
   }
+
+  .flex-item-2 ul li.listNone {
+    list-style: none;
+  }
+
+  
