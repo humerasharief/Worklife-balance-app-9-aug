@@ -7,7 +7,11 @@ const Chart = () => {
   const sentData = localStorage.getItem('sentData');
   const parsedSentData = sentData.length > 0 ? JSON.parse(sentData): [];
   const clickedData = localStorage.getItem('clickedData');
+  const selectedCat = localStorage.getItem('selectedCategory');
+  console.log(selectedCat)
   const parsedClickedData = clickedData.length > 0 ?JSON.parse(clickedData): [];
+  const parsedSelectedCat = selectedCat.length > 0 ?JSON.parse(selectedCat): [];
+  console.log(parsedSelectedCat)
   const sentFilter = (category) => {
     return parsedSentData.filter(item => item.category === category);
   };
@@ -15,21 +19,19 @@ const Chart = () => {
   const clickedFilter = (category) => {
     return parsedClickedData.filter(item => item.category === category);
   };
-  const dataPoints = [{label:'Work', clickedValue: clickedFilter('work').length, sentValue: sentFilter('work').length},
-                          {label:'Business', clickedValue: clickedFilter('business').length, sentValue: sentFilter('business').length},
-                          {label:'Time', clickedValue: clickedFilter('time').length, sentValue: sentFilter('time').length},
-                          {label:'Wellness', clickedValue: clickedFilter('health').length, sentValue: sentFilter('health').length},
-                          {label:'Psychology', clickedValue: clickedFilter('psychology').length, sentValue: sentFilter('psychology').length},
-                          {label:'SelfHelp', clickedValue: clickedFilter('selfhelp').length, sentValue: sentFilter('selfhelp').length},
-                          {label:'Motivational', clickedValue: clickedFilter('motivation').length, sentValue: sentFilter('motivation').length},
-                          {label:'Financial', clickedValue: clickedFilter('finanace').length, sentValue: sentFilter('finanace').length},
-                          {label:'Family', clickedValue: clickedFilter('family').length, sentValue: sentFilter('family').length},
+  const dataPoints = [{label:'Work', category:"work",clickedValue: clickedFilter('work').length, sentValue: sentFilter('work').length},
+                          {label:'Business',category:"business", clickedValue: clickedFilter('business').length, sentValue: sentFilter('business').length},
+                          {label:'Time', category:"time",clickedValue: clickedFilter('time').length, sentValue: sentFilter('time').length},
+                          {label:'Wellness',category:"health", clickedValue: clickedFilter('health').length, sentValue: sentFilter('health').length},
+                          {label:'Psychology',category:"psychology", clickedValue: clickedFilter('psychology').length, sentValue: sentFilter('psychology').length},
+                          {label:'SelfHelp',category:"selfhelp", clickedValue: clickedFilter('selfhelp').length, sentValue: sentFilter('selfhelp').length},
+                          {label:'Motivational',category:"motivation", clickedValue: clickedFilter('motivation').length, sentValue: sentFilter('motivation').length},
+                          {label:'Financial',category:"finanace", clickedValue: clickedFilter('finanace').length, sentValue: sentFilter('finanace').length},
+                          {label:'Family',category:"family", clickedValue: clickedFilter('family').length, sentValue: sentFilter('family').length},
                         ];
-
-  const listValue = ['work', 'business', 'time','health','psychology','selfhelp','motivation','finanace','family'];
   let clickedCount = 0;
   let sentCount = 0;
-  listValue.map((item, index) => {
+  parsedSelectedCat.map((item, index) => {
     clickedCount += clickedFilter(item).length;
     sentCount += sentFilter(item).length;
   });
@@ -40,12 +42,16 @@ const Chart = () => {
       <>
         {
           dataPoints.map((dataPoint) => (
-            <ChartBar
-              key={dataPoint.label}
-              value={dataPoint.clickedValue}
-              maxValue={dataPoint.sentValue}
-              label={dataPoint.label}
-            />
+            parsedSelectedCat.includes(dataPoint.category) ? (
+              <ChartBar
+                key={dataPoint.label}
+                value={dataPoint.clickedValue}
+                maxValue={dataPoint.sentValue}
+                label={dataPoint.label}
+              />
+            ) : (
+              null
+            )
           ))}
           
       </>

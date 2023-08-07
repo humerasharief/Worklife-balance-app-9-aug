@@ -75,6 +75,10 @@ function CustomNotify(props) {
       )
     );
     const filteredItems = checkboxes.filter((checkbox) => checkbox.checked == true);
+    const selectedCategory = filteredItems.map(obj => obj.category);
+    console.log(selectedCategory)
+
+    localStorage.setItem('selectedCategory', JSON.stringify(selectedCategory));
     const extractedValues = filteredItems.map((item) => item.category);
     const extractedReminder = reminders.filter((rem) => extractedValues.includes(rem.category));
     setFinalReminder(extractedReminder)
