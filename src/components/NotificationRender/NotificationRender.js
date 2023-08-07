@@ -83,7 +83,7 @@ function NotificationRender(props) {
         <div className="flex-item-2"><TimePicker messageToChild={'fromLunch'} sendDataToParent={handleChildDataLunch}/></div>
       </div>      
       <CustomNotify messageProp={buttonClickCount}/>
-      {showToast && <div className='successMsg'>When you click with the notification message, we regard that as you having taken action.</div>}
+      <div className='successMsg'>When you click with the notification message, we regard that as you having taken action.</div>
       <div className="container">
           <Button onClick={handleClick } variant="contained" color="primary" className="aligned-button">Click to enable notifications</Button>
       </div>  

@@ -4,5 +4,11 @@
     text-align: center;
     display: flex;
     justify-content: space-around;
-    height: 10rem;
+    height: 15rem;
+  }
+
+  .flexSettings {
+    flex-direction: row;
+    text-align: center;
+
   }

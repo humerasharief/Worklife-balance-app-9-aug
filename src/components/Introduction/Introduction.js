@@ -8,9 +8,6 @@ import defaultImg from './default_image.jpg'
 function Introduction({ sendDataToParent }){
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
-    console.log(queryParams.get('param1'))
-    console.log(queryParams.get('param2'))
-    console.log(queryParams.get('param3'));
     
     let template ='<></>';
     const containerStyle_female = {

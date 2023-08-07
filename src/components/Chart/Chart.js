@@ -8,10 +8,8 @@ const Chart = () => {
   const parsedSentData = sentData.length > 0 ? JSON.parse(sentData): [];
   const clickedData = localStorage.getItem('clickedData');
   const selectedCat = localStorage.getItem('selectedCategory');
-  console.log(selectedCat)
   const parsedClickedData = clickedData.length > 0 ?JSON.parse(clickedData): [];
   const parsedSelectedCat = selectedCat.length > 0 ?JSON.parse(selectedCat): [];
-  console.log(parsedSelectedCat)
   const sentFilter = (category) => {
     return parsedSentData.filter(item => item.category === category);
   };
@@ -35,11 +33,9 @@ const Chart = () => {
     clickedCount += clickedFilter(item).length;
     sentCount += sentFilter(item).length;
   });
-  console.log(clickedCount)
-  console.log(sentCount)
   return (
-    <div className='chart background-container'>
-      <>
+    <div className='background-container'>
+      <div className='chart' >
         {
           dataPoints.map((dataPoint) => (
             parsedSelectedCat.includes(dataPoint.category) ? (
@@ -54,8 +50,9 @@ const Chart = () => {
             )
           ))}
           
-      </>
-      <div>{Math.round((clickedCount/sentCount) * 100) + '%'}</div>
+      </div>
+      <div className="flexSettings">Your overall score for categories you have selected is {Math.round((clickedCount/sentCount) * 100) + '%'}</div>
+      <div className="flexSettings"><b>{Math.round((clickedCount/sentCount) * 100) <50 ? "Could be improved": Math.round((clickedCount/sentCount) * 100) > 50 & Math.round((clickedCount/sentCount) * 100) >80 ? "Your progress is good" : "Your progress is excellent. Keep it up"}</b></div>
     </div>)
 }
 export default Chart;

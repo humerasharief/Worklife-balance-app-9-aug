@@ -76,7 +76,6 @@ function CustomNotify(props) {
     );
     const filteredItems = checkboxes.filter((checkbox) => checkbox.checked == true);
     const selectedCategory = filteredItems.map(obj => obj.category);
-    console.log(selectedCategory)
 
     localStorage.setItem('selectedCategory', JSON.stringify(selectedCategory));
     const extractedValues = filteredItems.map((item) => item.category);
@@ -110,11 +109,13 @@ function CustomNotify(props) {
           const notification = new Notification(finalReminder[i].label, {
             body: finalReminder[i].text
           })
-          notification.onclick = function(){
+          notification.onclick = function(event){
+            event.preventDefault();
             const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
-            clickedRemindersList.push(newObj);       
+            clickedRemindersList.push(newObj);  
+            console.log(clickedRemindersList)     
             localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
-            window.focus();
+            //window.focus();
           };
         }, 60000);
       }

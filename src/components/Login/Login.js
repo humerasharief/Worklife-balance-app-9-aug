@@ -13,7 +13,6 @@ function Login() {
 
   const handleButtonClick = () => {
     // Redirect to the target page with parameters
-    console.log(isNameValid && isAgeValid)
     if(isNameValid && isAgeValid)
       history.push(`/intro?param1=${username}&param2=${age}&param3=${selectedOption}`);
     else 
