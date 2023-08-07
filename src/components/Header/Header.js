@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-do
 import { useLocation } from 'react-router-dom';
 import Analytics from '../Analytics/Analytics';
 import Login from '../Login/Login';
+import Home from "../Home/Home";
 import Introduction from '../Introduction/Introduction';
 const Header = () => {
     const location = useLocation();
   return (
     <>
       <header className="header">
-        <h1>Work Life Balancer Application </h1>
-      
+        <h1>Work Life Balancer Application </h1>      
         {location.pathname !== '/' ?  
           (<nav className="navigation"  >
             <ul className="nav-list">
@@ -32,12 +32,7 @@ const Header = () => {
               </li>
             </ul>
           </nav>) : null}
-        </header>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/intro" component={Introduction} />
-          <Route exact path="/analytics" component={Analytics} />
-        </Switch>      
+      </header>
     </>
   );
 };
