@@ -30,7 +30,7 @@ function NotificationRender(props) {
       timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
     }
     const notificationTimeout = setInterval(() => {
-      showNotification('Time to have your lunch', 'Eating at correct time improves your digestion capacity');
+      showNotification('Time to have your lunch', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
     }, timeUntilNotification); 
     return () => {
       clearTimeout(notificationTimeout);
