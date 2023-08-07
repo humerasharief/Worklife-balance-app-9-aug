@@ -55,7 +55,7 @@ body {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: start;
   }
   
   .header nav li {
@@ -72,14 +72,15 @@ body {
 .navigation {
     background-color: #F3C583;
     color: white;
+    padding: 10px 0;
   }
   
   .nav-list {
     list-style: none;
     display: flex;
     justify-content: space-around;
-    padding: 0;
-    margin: 0;
+    padding: 0 0 0 10px !important;
+    margin: 0;    
   }
   
   .nav-list li {
@@ -87,7 +88,6 @@ body {
   }
   
   .nav-list a {
-    text-decoration: none;
     color: white;
   }
   

@@ -15,10 +15,17 @@ const Chart = () => {
   const clickedFilter = (category) => {
     return parsedClickedData.filter(item => item.category === category);
   };
+
   const dataPoints = [{label:'Work', clickedValue: clickedFilter('Work').length, sentValue: sentFilter('Work').length},
-                          {label:'Life', clickedValue: clickedFilter('Life').length, sentValue: sentFilter('Life').length},
-                          {label:'Exercise', clickedValue: clickedFilter('Exercise').length, sentValue: sentFilter('Exercise').length},
-                          {label:'Motivation', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('Motivation').length}]
+                          {label:'Business', clickedValue: clickedFilter('Life').length, sentValue: sentFilter('business').length},
+                          {label:'Time', clickedValue: clickedFilter('Exercise').length, sentValue: sentFilter('time').length},
+                          {label:'Wellness', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('health').length},
+                          {label:'Psychology', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('psychology').length},
+                          {label:'SelfHelp', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('selfhelp').length},
+                          {label:'Motivational', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('motivation').length},
+                          {label:'Financial', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('finanace').length},
+                          {label:'Parenting', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('parenting').length},
+                        ]
   return (
     <div className='chart background-container'>
       {
