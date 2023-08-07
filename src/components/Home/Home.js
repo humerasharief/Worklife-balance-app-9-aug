@@ -7,8 +7,7 @@ import Header from '../Header/Header';
 function Home() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const param1 = searchParams.get('param1');
-  return <div className="background-container dashboard-container">
+  return <div className="dashboard-container">
     
     <div ></div>
     <div className="">

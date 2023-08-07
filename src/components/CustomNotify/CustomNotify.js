@@ -3,9 +3,14 @@ import './CustomNotify.css';
 function CustomNotify(props) {
   const initialCheckboxes = [
     { id: 1, label: 'Work', checked: false, category: 'Work' },
-    { id: 2, label: 'Life', checked: false, category: 'Life' },
-    { id: 3, label: 'Exercise', checked: false, category: 'Exercise' },
-    { id: 4, label: 'Motivational Messages', checked: false, category: 'Motivation' }
+    { id: 2, label: 'Business and Management', checked: false, category: 'business' },
+    { id: 3, label: 'Time Management and Productivity', checked: false, category: 'time' },    
+    { id: 4, label: 'Health and Wellness', checked: false, category: 'health' },
+    { id: 5, label: 'Psychology and Well-being', checked: false, category: 'psychology' },
+    { id: 6, label: 'Self-Help and Personal Development', checked: false, category: 'selfhelp' },
+    { id: 7, label: 'Motivational and Inspirational', checked: false, category: 'motivation' },
+    { id: 8, label: 'Financial Management', checked: false, category: 'finanace' },
+    { id: 9, label: 'Parenting', checked: false, category: 'parenting' },
   ];
 
   const [finalReminder, setFinalReminder] = useState([]);
