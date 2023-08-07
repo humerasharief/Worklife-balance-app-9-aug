@@ -4,6 +4,7 @@ import './Introduction.css';
 import backgroundImage from './istockphoto-1365669010-612x612.jpg';
 import backgroundImage_men from './men_meditate.jpg';
 import bcg_men_old from './dad_old.jpg';
+import defaultImg from './default_image.jpg'
 function Introduction({ sendDataToParent }){
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -48,6 +49,19 @@ function Introduction({ sendDataToParent }){
         color: 'white',
         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
       };
+
+      const containerStyle_default = {
+        backgroundImage: `url(${defaultImg})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        width: '490px',
+        height: '450px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      };
     if(queryParams.get('param2')>35 && queryParams.get('param3') =='female')
         template = <div className="flex-container">
                         <div className="flex-item"><img src="women.jpg" width="490" height="450" alt="Image Alt Text" /></div>
@@ -65,6 +79,11 @@ function Introduction({ sendDataToParent }){
                 <div className="flex-item-2">third</div>
             </div>;
     else if(queryParams.get('param2')<35 && queryParams.get('param3') =='male')
+        template = <div className="flex-container">
+                <div className="flex-item"><div style={containerStyle_male}></div></div>
+                <div className="flex-item-2">fourth</div>
+            </div>;
+    else
         template = <div className="flex-container">
                 <div className="flex-item"><div style={containerStyle_male}></div></div>
                 <div className="flex-item-2">fourth</div>
