@@ -63,14 +63,14 @@ body {
   }
   
   .header nav a {
-    color: #B3E283;
+    color: #333;
     text-decoration: none;
     font-weight: bold;
   }
   
   /* Navigation.css */
 .navigation {
-    background-color: #333;
+    background-color: #F3C583;
     color: white;
   }
   
@@ -92,8 +92,15 @@ body {
   }
   
   .nav-list li.active {
-    background-color: #007bff;
+    background-color: #B3E283;
     border-radius: 5px;
   }
   /* Apply additional styles as needed */
-  
+  .background-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #E8E46E;
+    height: 75vh;
+    /* Additional styles... */
+  }

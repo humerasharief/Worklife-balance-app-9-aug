@@ -43,11 +43,11 @@ function Introduction({ sendDataToParent }){
                 <div className="flex-item"><img src="women.jpg" width="600" height="400" alt="Image Alt Text" /></div>
                 <div className="flex-item-2">fourth</div>
             </div>;
-    return (<>
-    <h3>Happy day {queryParams.get('param1')}! Great to hear you have chosen healthy lifestyle!!</h3>
-    <h4>We provide customized suggestion based on age & gender</h4>
+    return (<div className='background-container'>
+    <p>Happy day {queryParams.get('param1')}! Great to hear you have chosen healthy lifestyle!!</p>
+    <p>We provide customized suggestion based on age & gender</p>
     {template}
-    </>);
+    </div>);
 }
 
 export default Introduction;

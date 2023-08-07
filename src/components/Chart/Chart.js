@@ -20,7 +20,7 @@ const Chart = () => {
                           {label:'Exercise', clickedValue: clickedFilter('Exercise').length, sentValue: sentFilter('Exercise').length},
                           {label:'Motivation', clickedValue: clickedFilter('Motivation').length, sentValue: sentFilter('Motivation').length}]
   return (
-    <div className='chart'>
+    <div className='chart background-container'>
       {
         dataPoints.map((dataPoint) => (
           <ChartBar

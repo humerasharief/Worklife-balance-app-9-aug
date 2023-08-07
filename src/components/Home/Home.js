@@ -11,7 +11,7 @@ function Home() {
   return <div className="background-container dashboard-container">
     
     <div ></div>
-    <div className="main-content">
+    <div className="">
       <NotificationRender/>
     </div>
     
