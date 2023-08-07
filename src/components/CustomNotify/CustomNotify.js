@@ -64,6 +64,7 @@ function CustomNotify(props) {
 
   const [checkboxes, setCheckboxes] = useState(initialCheckboxes);
   const [filter, setFilter] = useState('');
+  
 
   const handleCheckboxChange = (id) => {
     setCheckboxes((prevCheckboxes) =>
@@ -102,11 +103,11 @@ function CustomNotify(props) {
           const newObj1 = {text:finalReminder[i].text, category:finalReminder[i].category};
           providedRemindersList.push(newObj1);
           localStorage.setItem('sentData', JSON.stringify(providedRemindersList));
-          const notification = new Notification(finalReminder[i].category, {
+          const notification = new Notification(finalReminder[i].label, {
             body: finalReminder[i].text
           })
           notification.onclick = function(){
-            const newObj = {text:finalReminder[i].text, category:finalReminder[i].label};
+            const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
             clickedRemindersList.push(newObj);       
             localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
             window.focus();
@@ -118,7 +119,7 @@ function CustomNotify(props) {
   return (
     <div>
       <div className="flex-container">
-        <div className="flex-item">Enter the genre you would be interested in getting reminders</div>
+        <div className="flex-item">Specify the categories for which you would like to receive reminders</div>
         <div className="flex-item-2">
           <input  className='styled-input '
             type="text"

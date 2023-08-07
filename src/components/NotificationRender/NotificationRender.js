@@ -4,6 +4,7 @@ import './NotificationRender.css';
 import TimePicker from '../TimePicker/TimePicker'
 import CustomNotify from '../CustomNotify/CustomNotify';
 import Button from '@material-ui/core/Button';
+import { Toast} from 'react-bootstrap';
 function NotificationRender(props) {
   const showNotification = (msg, bodyMsg) => {
     new Notification(msg, {
@@ -14,6 +15,7 @@ function NotificationRender(props) {
   const [buttonClickCount, setButtonClickCount] = useState(0);
   const handleClick = () => {
     setButtonClickCount(prevCount => prevCount + 1);
+    setShowToast(!showToast);
   };
   const [logoutHoursFromChild, setlogoutHoursFromChild] = React.useState(20);
   const [logoutMinsFromChild, setlogoutMinsFromChild] = React.useState(0);
@@ -66,21 +68,28 @@ function NotificationRender(props) {
     setLunchHoursFromChild(obj.hours)
     setLunchMinsFromChild(obj.minutes)
   };
+
+  const [showToast, setShowToast] = useState(false);
+
+  const toggleToast = () => {
+    setShowToast(!showToast);
+  };
   return (
     <div className="background-container">
 
       <div className="flex-container">
-        <div className="flex-item">Enter your office end time</div>
+        <div className="flex-item">Your designated time of departure from the office</div>
         <div className="flex-item-2"><TimePicker sendDataToParent={handleChildDataLogout}/></div>
       </div>
       <div className="flex-container">
-        <div className="flex-item">Enter your lunch time</div>
+        <div className="flex-item">Indicate your scheduled time for taking a lunch break</div>
         <div className="flex-item-2"><TimePicker sendDataToParent={handleChildDataLunch}/></div>
       </div>      
       <CustomNotify messageProp={buttonClickCount}/>
+      {showToast && <div className='successMsg'>When you click with the notification message, we regard that as you having taken action.</div>}
       <div className="container">
           <Button onClick={handleClick } variant="contained" color="primary" className="aligned-button">Click to enable notifications</Button>
-      </div>      
+      </div>  
     </div>
   );
 }

@@ -18,5 +18,32 @@
     border-radius: 5px;
     cursor: pointer;
   }
-
+  .toast-custom {
+    background-color: #ffcc00;
+  }
   
+  /* Customize the text color of the toast */
+  .toast-custom .toast-header {
+    color: #333;
+  }
+  
+  /* Customize the border color of the toast */
+  .toast-custom .toast-header {
+    border-color: #ffcc00;
+  }
+  
+  .toast-container {
+    position: fixed;
+    top: 10px; /* Adjust the value as needed */
+    right: 20px; /* Adjust the value as needed */
+    z-index: 9999;
+    border: 1px solid #333;
+    padding: 10px
+  }
+
+  .successMsg{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
