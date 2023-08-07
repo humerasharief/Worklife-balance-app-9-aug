@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './TimePicker.css'; // Import your CSS file for styling
 
-function TimePicker({ sendDataToParent }){
-  const [hours, setHours] = useState(20);
+function TimePicker(props){
+  const receivedObject = props.messageToChild;
+  const [hours, setHours] = useState(receivedObject == 'fromLunch' ? 13 : 20);
   const [minutes, setMinutes] = useState(0);
-
   const handleHoursChange = (event) => {
     const newHours = parseInt(event.target.value);
     if (newHours >= 0 && newHours <= 23) {
@@ -26,9 +26,9 @@ function TimePicker({ sendDataToParent }){
         hours: hours,
         minutes: minutes
     };
-    sendDataToParent(obj);
+    props.sendDataToParent(obj);
   };
-
+  
   return (
     <div className="time-picker">
       <input
