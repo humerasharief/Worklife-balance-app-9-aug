@@ -52,7 +52,7 @@ function NotificationRender(props) {
       notificationTime.setHours(new_hour); // Replace with your desired hour
       notificationTime.setMinutes(new_minute);
     }
-    
+    debugger;
     const currentTime = new Date();
     let timeUntilNotification = notificationTime - (currentTime);
 
@@ -62,7 +62,7 @@ function NotificationRender(props) {
 
     const notificationTimeout = setTimeout(() => {
       if(msg == 'logout') {
-        showNotification('Time to head out home!', 'Don"t forget your essentials: keys, wallet, phone. Have a great day!');
+        showNotification('Time to head out home!', "Don't forget your essentials: keys, wallet, phone. Have a great day!");
         scheduleDailyNotification('logout');
       } else if(msg == 'lunch') {
         showNotification('Time to have your lunch!', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
@@ -111,6 +111,11 @@ function NotificationRender(props) {
     setshowCustomTime(true)
   };
 
+  const setBtnCancel = () => {
+    setshowCustomTime(false);
+    setShowCustomInput(false)
+  };
+
   const [showCustomInput, setShowCustomInput] =useState(false);
   const [showCustomTime, setshowCustomTime] =useState(false);
   
@@ -145,13 +150,14 @@ function NotificationRender(props) {
                 value={msgCat}
                 onChange={handleMsgCatChange}
               />
-              <Link color="primary" className='pad-left' onClick={setBtnCnf }>Confirm</Link>
+              <Link color="primary" className='pad-left' onClick={setBtnCnf}>Confirm</Link>
+              <Link color="primary" className='pad-left' onClick={setBtnCancel}>Remove</Link>
             </div>   
           </div>
         }        
         {showCustomTime && <div className="flex-container">
           <div className="flex-item">{titleCat}</div>
-          <div className="flex-item-2"><TimePicker messageToChild={'fromOthers'} sendDataToParent={handleChildDataOthers}/></div>
+          <div className="flex-item-2"><TimePicker messageToChild={'fromOthers'} sendDataToParent={handleChildDataOthers}/><Link color="primary" className='pad-left' onClick={setBtnCancel}>Remove</Link></div>
         </div> }
         <CustomNotify messageProp={buttonClickCount}/>
       </div>
