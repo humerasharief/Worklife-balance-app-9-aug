@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TimePicker.css'; // Import your CSS file for styling
-import Button from '@material-ui/core/Button';
 
 function TimePicker(props){
   const receivedObject = props.messageToChild;
@@ -20,16 +19,15 @@ function TimePicker(props){
     }
   };
 
-  const handleAddEvent = (event) => {
+  useEffect(() => {
     const obj = {
       hours: hours,
       minutes: minutes
     };
     props.sendDataToParent(obj);
-  };
+  }, [hours, minutes]);
   
   return (
-    <>
     <div className="time-picker">
       <input
         type="number"
@@ -46,11 +44,7 @@ function TimePicker(props){
         min="0"
         max="59"
       />
-      
     </div>
-    <Button onClick={handleAddEvent} color="primary" className="pad-left">Confirm</Button>
-    </>
-
   );
 };
 

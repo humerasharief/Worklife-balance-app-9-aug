@@ -1,5 +1,5 @@
 // YourComponent.js
-import React, { useEffect, useState }from 'react';
+import React, { useEffect, useState } from 'react';
 import './NotificationRender.css';
 import TimePicker from '../TimePicker/TimePicker'
 import CustomNotify from '../CustomNotify/CustomNotify';
