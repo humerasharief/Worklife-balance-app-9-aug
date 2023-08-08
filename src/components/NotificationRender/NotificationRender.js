@@ -52,7 +52,6 @@ function NotificationRender(props) {
       notificationTime.setHours(new_hour); // Replace with your desired hour
       notificationTime.setMinutes(new_minute);
     }
-    debugger;
     const currentTime = new Date();
     let timeUntilNotification = notificationTime - (currentTime);
 
