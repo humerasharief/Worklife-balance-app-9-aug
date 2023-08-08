@@ -100,28 +100,39 @@ function CustomNotify(props) {
   };
 
   useEffect(() => {
+    displayNotificationsLoop()
+  }, [props.messageProp]);
+
+  displayNotificationsLoop(() => {
     const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2;
+    timeSelected = 30000;
     let clickedRemindersList = [];
     let providedRemindersList = [];
-    for (let i in finalReminder) {
-        setInterval(() => {
-          const newObj1 = {text:finalReminder[i].text, category:finalReminder[i].category};
-          providedRemindersList.push(newObj1);
-          localStorage.setItem('sentData', JSON.stringify(providedRemindersList));
-          const notification = new Notification(finalReminder[i].label, {
-            body: finalReminder[i].text
-          })
-          notification.onclick = function(event){
-            event.preventDefault();
-            const newObj = {text:finalReminder[i].text, category:finalReminder[i].category};
-            clickedRemindersList.push(newObj);  
-            console.log(clickedRemindersList)     
-            localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
-            //window.focus();
-          };
-        }, 60000);
-      }
-  }, [props.messageProp]);
+    finalReminder.forEach((reminder, i) => {
+      setInterval(() => {
+        const newObj1 = { text: reminder.text, category: reminder.category };
+        providedRemindersList.push(newObj1);
+        localStorage.setItem('sentData', JSON.stringify(providedRemindersList));
+        
+        const notification = new Notification(reminder.label, {
+          body: reminder.text,
+        });
+    
+        notification.onclick = function (event) {
+          event.preventDefault();
+          const newObj = { text: reminder.text, category: reminder.category };
+          clickedRemindersList.push(newObj);
+          console.log(clickedRemindersList);
+          localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
+        };
+
+        if (i === finalReminder.length - 1) {
+          setTimeout(displayNotificationsLoop, timeSelected); // Restart the loop after a 60-second delay
+        }
+      }, i * timeSelected); 
+    });
+    
+  });
 
   return (
     <div>
