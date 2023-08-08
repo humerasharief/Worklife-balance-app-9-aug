@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TimePicker.css'; // Import your CSS file for styling
+import Button from '@material-ui/core/Button';
 
 function TimePicker(props){
   const receivedObject = props.messageToChild;
@@ -10,7 +11,6 @@ function TimePicker(props){
     if (newHours >= 0 && newHours <= 23) {
       setHours(newHours);
     }
-    sendDataToParentMet();
   };
 
   const handleMinutesChange = (event) => {
@@ -18,18 +18,18 @@ function TimePicker(props){
     if (newMinutes >= 0 && newMinutes <= 59) {
       setMinutes(newMinutes);
     }
-    sendDataToParentMet();
   };
 
-  const sendDataToParentMet = () => {
+  const handleAddEvent = (event) => {
     const obj = {
-        hours: hours,
-        minutes: minutes
+      hours: hours,
+      minutes: minutes
     };
     props.sendDataToParent(obj);
   };
   
   return (
+    <>
     <div className="time-picker">
       <input
         type="number"
@@ -46,7 +46,11 @@ function TimePicker(props){
         min="0"
         max="59"
       />
+      
     </div>
+    <Button onClick={handleAddEvent} color="primary" className="pad-left">Confirm</Button>
+    </>
+
   );
 };
 
