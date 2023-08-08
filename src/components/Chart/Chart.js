@@ -28,31 +28,33 @@ const Chart = () => {
                           {label:'Family',category:"family", clickedValue: clickedFilter('family').length, sentValue: sentFilter('family').length},
                         ];
   let clickedCount = 0;
-  let sentCount = 0;
+  let sentCount = 0;  
   parsedSelectedCat.map((item, index) => {
     clickedCount += clickedFilter(item).length;
     sentCount += sentFilter(item).length;
   });
   return (
     <div className='background-container'>
-      <div className='chart' >
-        {
-          dataPoints.map((dataPoint) => (
-            parsedSelectedCat.includes(dataPoint.category) ? (
-              <ChartBar
-                key={dataPoint.label}
-                value={dataPoint.clickedValue}
-                maxValue={dataPoint.sentValue}
-                label={dataPoint.label}
-              />
-            ) : (
-              null
-            )
-          ))}
-          
-      </div>
-      <div className="flexSettings">Your overall score for categories you have selected is {Math.round((clickedCount/sentCount) * 100) + '%'}</div>
-      <div className="flexSettings"><b>{Math.round((clickedCount/sentCount) * 100) >80 ? "Your work life balance is excellent. Keep it up!!!": Math.round((clickedCount/sentCount) * 100) > 50 & Math.round((clickedCount/sentCount) * 100) <80 ? "Your work life balance is good! A little more steps could drastically improvise your work life balance!!!" : "Your work life balance score is low. Try to priortize the tasks and helps yourself for a healthy living!!!"}</b></div>
+      {parsedSelectedCat.length > 0 ?( <div>
+        <div className='chart' >
+          {
+            dataPoints.map((dataPoint) => (
+              parsedSelectedCat.includes(dataPoint.category) ? (
+                <ChartBar
+                  key={dataPoint.label}
+                  value={dataPoint.clickedValue}
+                  maxValue={dataPoint.sentValue}
+                  label={dataPoint.label}
+                />
+              ) : (
+                null
+              )
+            ))}
+            
+        </div>
+        <div className="flexSettings">Your overall score for categories you have selected is <b>{Math.round((clickedCount/sentCount) * 100) + '%'}</b></div>
+        <div className="flexSettings"><b>{Math.round((clickedCount/sentCount) * 100) >80 ? "Your work life balance is excellent. Keep it up!!!": Math.round((clickedCount/sentCount) * 100) > 50 & Math.round((clickedCount/sentCount) * 100) <80 ? "Your work life balance is good! A little more steps could drastically improvise your work life balance!!!" : "Your work life balance score is low. Try to priortize the tasks and helps yourself for a healthy living!!!"}</b></div>
+      </div>):<div className="flexSettings"><b>Add items in your custom list to show up analytics data</b></div>}
     </div>)
 }
 export default Chart;
