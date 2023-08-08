@@ -25,32 +25,41 @@ function NotificationRender(props) {
   useEffect(() => {
     scheduleDailyNotification('logout');
     scheduleDailyNotification('lunch');
-    scheduleDailyNotification('others');
+    showCustomTime && scheduleDailyNotification('others');
   }, [buttonClickCount]);    
 
+  function get_time_before_given_time(given_hour, given_minute, minutes_before) {
+    let total_minutes = (given_hour * 60) + given_minute
+    let new_total_minutes = total_minutes - minutes_before
+    let new_hour = Math.floor(new_total_minutes / 60);
+    let new_minute = new_total_minutes % 60;
+    return [new_hour, new_minute];
+  }
+
   function scheduleDailyNotification(msg) {
-    console.log(msg)
     const notificationTime = new Date();
     if(msg == 'logout') {
-      notificationTime.setHours(logoutHoursFromChild); // Replace with your desired hour
-      notificationTime.setMinutes(logoutMinsFromChild); // Replace with your desired minute
+      const [new_hour, new_minute ]= get_time_before_given_time(logoutHoursFromChild, logoutMinsFromChild, 15);
+      notificationTime.setHours(new_hour); // Replace with your desired hour
+      notificationTime.setMinutes(new_minute); // Replace with your desired minute
     } else if(msg == 'lunch') {
-      notificationTime.setHours(lunchHoursFromChild); // Replace with your desired hour
-      notificationTime.setMinutes(lunchMinsFromChild); // Replace with your desired minute    
+      const [new_hour, new_minute ]= get_time_before_given_time(lunchHoursFromChild, lunchMinsFromChild, 15);
+      notificationTime.setHours(new_hour); // Replace with your desired hour
+      notificationTime.setMinutes(new_minute); // Replace with your desired minute    
     } else {
-      notificationTime.setHours(otherHoursFromChild); // Replace with your desired hour
-      notificationTime.setMinutes(otherMinsFromChild);
+      const [new_hour, new_minute ]= get_time_before_given_time(otherHoursFromChild, otherMinsFromChild, 15);
+      notificationTime.setHours(new_hour); // Replace with your desired hour
+      notificationTime.setMinutes(new_minute);
     }
+    
     const currentTime = new Date();
-    let timeUntilNotification = notificationTime - currentTime;
-  
-    if (timeUntilNotification < 0) {
-      // If the notification time has already passed today, schedule it for tomorrow
-      timeUntilNotification += 24 * 60 * 60 * 1000;
+    let timeUntilNotification = notificationTime - (currentTime);
+
+    if (currentTime >= notificationTime) {
+      timeUntilNotification = timeUntilNotification + ((24 * 60 * 60 * 1000));
     }
-    console.log(timeUntilNotification)
+
     const notificationTimeout = setTimeout(() => {
-      console.log("time reached")
       if(msg == 'logout') {
         showNotification('Log out in 15 mins', 'Time to go home!');
         scheduleDailyNotification('logout');
@@ -61,7 +70,6 @@ function NotificationRender(props) {
         showNotification(titleCat, msgCat);
         scheduleDailyNotification('others');
       }
-       // Schedule the next day's notification
     }, timeUntilNotification);
 
     return () => {
