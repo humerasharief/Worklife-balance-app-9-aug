@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 function NotificationRender(props) {
   const showNotification = (msg, bodyMsg) => {
+    msg = "Reminder: In 15 mins " + msg;
     new Notification(msg, {
       body: bodyMsg,
     });
@@ -61,10 +62,10 @@ function NotificationRender(props) {
 
     const notificationTimeout = setTimeout(() => {
       if(msg == 'logout') {
-        showNotification('Log out in 15 mins', 'Time to go home!');
+        showNotification('Time to head out home!', 'Don"t forget your essentials: keys, wallet, phone. Have a great day!');
         scheduleDailyNotification('logout');
       } else if(msg == 'lunch') {
-        showNotification('Time to have your lunch', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
+        showNotification('Time to have your lunch!', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
         scheduleDailyNotification('lunch');
       } else {
         showNotification(titleCat, msgCat);
