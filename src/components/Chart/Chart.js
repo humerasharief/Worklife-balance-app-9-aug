@@ -52,7 +52,7 @@ const Chart = () => {
           
       </div>
       <div className="flexSettings">Your overall score for categories you have selected is {Math.round((clickedCount/sentCount) * 100) + '%'}</div>
-      <div className="flexSettings"><b>{Math.round((clickedCount/sentCount) * 100) >80 ? "Your progress is excellent. Keep it up": Math.round((clickedCount/sentCount) * 100) > 50 & Math.round((clickedCount/sentCount) * 100) <80 ? "Your progress is good" : "Could be improved"}</b></div>
+      <div className="flexSettings"><b>{Math.round((clickedCount/sentCount) * 100) >80 ? "Your work life balance is excellent. Keep it up": Math.round((clickedCount/sentCount) * 100) > 50 & Math.round((clickedCount/sentCount) * 100) <80 ? "Your work life balance is good! A little more steps could drastically improvise your work life balance!!!" : "Your work life balance score is low. Try to priortize the tasks and helps yourself for a healthy living!!!"}</b></div>
     </div>)
 }
 export default Chart;
