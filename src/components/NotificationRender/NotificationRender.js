@@ -160,7 +160,7 @@ function NotificationRender(props) {
         <CustomNotify messageProp={buttonClickCount}/>
       </div>
       <div class="btn-container">
-        <div className='successMsg'>When you click with the notification message, we regard that as you having taken action.</div>
+        <div className='successMsg'>When you click notification message, we regard that as you having taken action.</div>
         <div className="container">
             <Button onClick={handleClick } variant="contained" color="primary" className="aligned-button">Click to enable notifications</Button>
         </div> 
