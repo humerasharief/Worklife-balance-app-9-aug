@@ -3,7 +3,7 @@ import './TimePicker.css'; // Import your CSS file for styling
 
 function TimePicker(props){
   const receivedObject = props.messageToChild;
-  const [hours, setHours] = useState(receivedObject == 'fromLunch' ? 13 : 20);
+  const [hours, setHours] = useState(receivedObject == 'fromLunch' ? 13 : receivedObject == 'fromLogout' ? 20: 0);
   const [minutes, setMinutes] = useState(0);
   const handleHoursChange = (event) => {
     const newHours = parseInt(event.target.value);

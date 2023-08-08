@@ -1,118 +1,125 @@
 /* globalStyles.css */
 body {
-    font-family: Georgia, Arial and Helvetica;
-    font-size: 17px; 
-    /* Add other global styles as needed */
-  }
+  font-family: Georgia, Arial and Helvetica;
+  font-size: 17px; 
+  /* Add other global styles as needed */
+}
 
   /* MyComponent.css */
 .flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-  }
-  
-  .flex-item {
-    flex: 1.5;
-    padding: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
 
-  .flex-item-2 {
-    flex: 2.5;
-    padding: 10px 10px 0 10px;
-  }
+.flex-item {
+  flex: 1.5;
+  padding: 10px;
+}
 
-  .flex-item-3 {
-    flex: 1;
-    align-items: center;
-  }
+.flex-item-2 {
+  flex: 2.5;
+  padding: 10px 10px 0 10px;
+}
 
-  .main-content{
-    padding:20px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+.flex-item-3 {
+  flex: 1;
+  align-items: center;
+}
 
-  ul li {
-    padding-bottom: 10px;
-  }
+.main-content{
+  padding:20px;
+}
+  
+ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .header {
-    color: #E99497;
-    font-family: Georgia, Arial and Helvetica;
-    padding: 0;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  
-  .header h1 {
-    margin: 0;
-  }
-  
-  .header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: start;
-  }
-  
-  .header nav li {
-    margin: 0 10px;
-  }
-  
-  .header nav a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  /* Navigation.css */
+ul li {
+  padding-bottom: 10px;
+}
+
+.header {
+  color: #E99497;
+  font-family: Georgia, Arial and Helvetica;
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+}
+
+.header nav li {
+  margin: 0 10px;
+}
+
+.header nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Navigation.css */
 .navigation {
-    background-color: #B3E283;
-    color: white;
-    padding: 10px 0;
-  }
-  
-  .nav-list {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    padding: 0 0 0 10px !important;
-    margin: 0;    
-  }
-  
-  .nav-list li {
-    padding: 10px;
-  }
-  
-  .nav-list a {
-    color: white;
-  }
-  
-  .nav-list li.active {
-    background-color: #F3C583;
-    border-radius: 5px;
-  }
-  /* Apply additional styles as needed */
-  .background-container {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #E8E46E;
-    height: 75vh;
-    padding: 15px;
-    /* Additional styles... */
-  }
+  background-color: #B3E283;
+  color: white;
+  padding: 10px 0;
+}
 
-  .flex-item-2 ul li {
-    list-style: disc;
-  }
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 0 0 10px !important;
+  margin: 0;    
+}
 
-  .flex-item-2 ul li.listNone {
-    list-style: none;
-  }
+.nav-list li {
+  padding: 10px;
+}
 
-  
+.nav-list a {
+  color: white;
+}
+
+.nav-list li.active {
+  background-color: #F3C583;
+  border-radius: 5px;
+}
+/* Apply additional styles as needed */
+.background-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #E8E46E;
+  height: 75.1vh;
+  padding: 15px;
+  overflow-y:scroll;
+  /* Additional styles... */
+}
+
+.background-container.notification-renderer{
+  height: 65vh;
+}
+
+.flex-item-2 ul li {
+  list-style: disc;
+}
+
+.flex-item-2 ul li.listNone {
+  list-style: none;
+}
+
+.btn-container {
+  background-color: #E99497;
+}

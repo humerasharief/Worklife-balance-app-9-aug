@@ -1,49 +1,55 @@
 .center-container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-  }
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
 
-  .container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align items to the top of the container */
-  }
-  
-  .aligned-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .toast-custom {
-    background-color: #ffcc00;
-  }
-  
-  /* Customize the text color of the toast */
-  .toast-custom .toast-header {
-    color: #333;
-  }
-  
-  /* Customize the border color of the toast */
-  .toast-custom .toast-header {
-    border-color: #ffcc00;
-  }
-  
-  .toast-container {
-    position: fixed;
-    top: 10px; /* Adjust the value as needed */
-    right: 20px; /* Adjust the value as needed */
-    z-index: 9999;
-    border: 1px solid #333;
-    padding: 10px
-  }
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align items to the top of the container */
+  padding: 15px 0;
+}
 
-  .successMsg{
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.aligned-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.toast-custom {
+  background-color: #ffcc00;
+}
+
+/* Customize the text color of the toast */
+.toast-custom .toast-header {
+  color: #333;
+}
+
+/* Customize the border color of the toast */
+.toast-custom .toast-header {
+  border-color: #ffcc00;
+}
+
+.toast-container {
+  position: fixed;
+  top: 10px; /* Adjust the value as needed */
+  right: 20px; /* Adjust the value as needed */
+  z-index: 9999;
+  border: 1px solid #333;
+  padding: 10px
+}
+
+.successMsg{
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.pad-left{
+  padding-left: 20px;
+}
