@@ -103,13 +103,12 @@ function CustomNotify(props) {
     displayNotificationsLoop()
   }, [props.messageProp]);
 
-  displayNotificationsLoop(() => {
+  function displayNotificationsLoop() {
     const timeSelected = (selectedOption == '30min')?0.5:(selectedOption == '60min')?1:2;
-    timeSelected = 30000;
     let clickedRemindersList = [];
     let providedRemindersList = [];
     finalReminder.forEach((reminder, i) => {
-      setInterval(() => {
+      setTimeout(() => {
         const newObj1 = { text: reminder.text, category: reminder.category };
         providedRemindersList.push(newObj1);
         localStorage.setItem('sentData', JSON.stringify(providedRemindersList));
@@ -125,14 +124,12 @@ function CustomNotify(props) {
           console.log(clickedRemindersList);
           localStorage.setItem('clickedData', JSON.stringify(clickedRemindersList));
         };
-
-        if (i === finalReminder.length - 1) {
-          setTimeout(displayNotificationsLoop, timeSelected); // Restart the loop after a 60-second delay
-        }
-      }, i * timeSelected); 
+        if(i == finalReminder.length-1)
+          displayNotificationsLoop()
+      }, (i+1) * (timeSelected * 60 * 60 * 1000)); 
     });
     
-  });
+  };
 
   return (
     <div>
