@@ -130,7 +130,7 @@ function CustomNotify(props) {
         <div className="flex-item-2">
           <input  className='styled-input '
             type="text"
-            placeholder="Search Genre"
+            placeholder="Search Category"
             value={filter}
             onChange={handleFilterChange}
           />
