@@ -5,5 +5,5 @@ const Analytics = () => {
     <Chart />
   </div>)
 }
-
+ 
 export default Analytics;
