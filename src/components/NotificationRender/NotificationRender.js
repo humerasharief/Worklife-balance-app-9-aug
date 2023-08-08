@@ -11,7 +11,6 @@ function NotificationRender(props) {
       body: bodyMsg,
     });
   };
-  const [btnClick, setBtnClick] = useState(false);
   const [buttonClickCount, setButtonClickCount] = useState(0);
   const handleClick = () => {
     setButtonClickCount(prevCount => prevCount + 1);
@@ -24,59 +23,51 @@ function NotificationRender(props) {
   const [otherMinsFromChild, setOtherMinsFromChild] = React.useState(0);
 
   useEffect(() => {
-    let notificationTime = new Date();
-    notificationTime.setHours(lunchHoursFromChild); // Replace with your desired hour
-    notificationTime.setMinutes(lunchMinsFromChild); // Replace with your desired minute    
-    const currentTime = new Date();
-    let timeUntilNotification = notificationTime - currentTime;
-    if (timeUntilNotification <= 0) {
-      timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
-    }
-    const notificationTimeout = setInterval(() => {
-      showNotification('Time to have your lunch', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
-    }, timeUntilNotification); 
-    return () => {
-      clearTimeout(notificationTimeout);
-    };
-    // Clean up the timeout if the component unmounts or the effect re-runs
-      
-  }, [buttonClickCount]);
-
-  useEffect(() => {
-    const notificationTime = new Date();
-    notificationTime.setHours(logoutHoursFromChild); // Replace with your desired hour
-    notificationTime.setMinutes(logoutMinsFromChild); // Replace with your desired minute    
-    const currentTime = new Date();
-    
-    let timeUntilNotification = notificationTime - currentTime;   
-    if (timeUntilNotification <= 0) {
-      timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
-    }
-    const notificationTimeout = setInterval(() => {
-      showNotification('Log out in 15 mins', 'Time to go home!');
-    }, timeUntilNotification); 
-    return () => {
-      clearTimeout(notificationTimeout);
-    };
+    scheduleDailyNotification('logout');
+    scheduleDailyNotification('lunch');
+    scheduleDailyNotification('others');
   }, [buttonClickCount]);    
 
-  useEffect(() => {
+  function scheduleDailyNotification(msg) {
+    console.log(msg)
     const notificationTime = new Date();
-    notificationTime.setHours(otherHoursFromChild); // Replace with your desired hour
-    notificationTime.setMinutes(otherMinsFromChild); // Replace with your desired minute    
-    const currentTime = new Date();
-    
-    let timeUntilNotification = notificationTime - currentTime;   
-    if (timeUntilNotification <= 0) {
-      timeUntilNotification += 24 * 60 * 60 * 1000; // Add 24 hours for the next day
+    if(msg == 'logout') {
+      notificationTime.setHours(logoutHoursFromChild); // Replace with your desired hour
+      notificationTime.setMinutes(logoutMinsFromChild); // Replace with your desired minute
+    } else if(msg == 'lunch') {
+      notificationTime.setHours(lunchHoursFromChild); // Replace with your desired hour
+      notificationTime.setMinutes(lunchMinsFromChild); // Replace with your desired minute    
+    } else {
+      notificationTime.setHours(otherHoursFromChild); // Replace with your desired hour
+      notificationTime.setMinutes(otherMinsFromChild);
     }
-    const notificationTimeout = setInterval(() => {
-      showNotification(titleCat, msgCat);
-    }, timeUntilNotification); 
+    const currentTime = new Date();
+    let timeUntilNotification = notificationTime - currentTime;
+  
+    if (timeUntilNotification < 0) {
+      // If the notification time has already passed today, schedule it for tomorrow
+      timeUntilNotification += 24 * 60 * 60 * 1000;
+    }
+    console.log(timeUntilNotification)
+    const notificationTimeout = setTimeout(() => {
+      console.log("time reached")
+      if(msg == 'logout') {
+        showNotification('Log out in 15 mins', 'Time to go home!');
+        scheduleDailyNotification('logout');
+      } else if(msg == 'lunch') {
+        showNotification('Time to have your lunch', 'Fuel up for the rest of the day. Enjoy your meal and take your time to eat mindfully.');
+        scheduleDailyNotification('lunch');
+      } else {
+        showNotification(titleCat, msgCat);
+        scheduleDailyNotification('others');
+      }
+       // Schedule the next day's notification
+    }, timeUntilNotification);
+
     return () => {
       clearTimeout(notificationTimeout);
     };
-  }, [buttonClickCount]);  
+  }
   
   const handleChildDataLogout = (obj) => {
     setlogoutHoursFromChild(obj.hours)
@@ -101,10 +92,6 @@ function NotificationRender(props) {
 
   const handleMsgCatChange = (e) => {
     setMsgCat(e.target.value);
-  };
-
-  const handleClickCustom = () => {
-    //setButtonClickCount(prevCount => prevCount + 1);
   };
 
   const setCatBtn = () => {
