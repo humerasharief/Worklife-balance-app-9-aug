@@ -119,6 +119,7 @@ function CustomNotify(props) {
     
         notification.onclick = function (event) {
           event.preventDefault();
+          event.stopImmediatePropagation();
           const newObj = { text: reminder.text, category: reminder.category };
           clickedRemindersList.push(newObj);
           console.log(clickedRemindersList);
