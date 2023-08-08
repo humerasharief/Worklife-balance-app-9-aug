@@ -126,7 +126,7 @@ function NotificationRender(props) {
         </div>   
         {!showCustomInput && <div className="flex-container">
           <div className="flex-item"></div>
-          <div className="flex-item-2"><Link color="primary" onClick={setCatBtn }>Click to add custom category</Link></div>
+          <div className="flex-item-2"><Link color="primary" onClick={setCatBtn } >Click to add custom category</Link></div>
           </div>}
         {showCustomInput && !showCustomTime && 
           <div className="flex-container">
@@ -154,7 +154,7 @@ function NotificationRender(props) {
         </div> }
         <CustomNotify messageProp={buttonClickCount}/>
       </div>
-      <div class="btn-container">
+      <div className="btn-container">
         <div className='successMsg'>When you click notification message, we regard that as you having taken action.</div>
         <div className="container">
             <Button onClick={handleClick } variant="contained" color="primary" className="aligned-button">Click to enable notifications</Button>
