@@ -58,7 +58,6 @@ function NotificationRender(props) {
     if (currentTime >= notificationTime) {
       timeUntilNotification = timeUntilNotification + ((24 * 60 * 60 * 1000));
     }
-
     const notificationTimeout = setTimeout(() => {
       if(msg == 'logout') {
         showNotification('Time to head out home!', "Don't forget your essentials: keys, wallet, phone. Have a great day!");

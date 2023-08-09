@@ -5,11 +5,11 @@ import './Chart.css';
 
 const Chart = () => {
   const sentData = localStorage.getItem('sentData');
-  const parsedSentData = sentData.length > 0 ? JSON.parse(sentData): [];
+  const parsedSentData = sentData!== null && sentData.length > 0 ? JSON.parse(sentData): [];
   const clickedData = localStorage.getItem('clickedData');
   const selectedCat = localStorage.getItem('selectedCategory');
-  const parsedClickedData = clickedData.length > 0 ?JSON.parse(clickedData): [];
-  const parsedSelectedCat = selectedCat.length > 0 ?JSON.parse(selectedCat): [];
+  const parsedClickedData = clickedData!== null && clickedData.length > 0 ?JSON.parse(clickedData): [];
+  const parsedSelectedCat = selectedCat!== null && selectedCat.length > 0 ?JSON.parse(selectedCat): [];
   const sentFilter = (category) => {
     return parsedSentData.filter(item => item.category === category);
   };
